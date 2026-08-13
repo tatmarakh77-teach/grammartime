@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#090b2c">
+  <title>Grammar Time Machine</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@500;600;700;800&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="space" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div id="app"><main class="shell"><section class="panel setup" style="margin-top:12vh;text-align:center"><h1>Loading the Time Machine…</h1><p style="color:#aab2dc">Preparing the laboratory</p></section></main></div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    window.addEventListener('error', function (event) {
+      var app = document.getElementById('app');
+      if (!app || app.dataset.ready === 'yes') return;
+      app.innerHTML = '<main class="shell"><section class="panel setup" style="margin-top:12vh;text-align:center"><h1>Time Machine needs a restart</h1><p style="color:#aab2dc">The game files could not load. Make sure <b>index.html</b>, <b>data.js</b>, <b>app.js</b> and <b>styles.css</b> are in the same folder, then refresh the page.</p><p style="color:#ff91a0;font-size:13px">' + String(event.message || 'Unknown loading error') + '</p><button class="btn" onclick="location.reload()">Restart</button></section></main>';
+    });
+  </script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
